@@ -20,7 +20,9 @@ class BuildTable extends Component {
     const { files } = this.props
     const tableColumns = [
       { title: 'Name', prop: 'name' },
-      { title: 'Size', prop: 'size' }
+      { title: 'Description', prop: 'desc'},
+      { title: 'Size', prop: 'size' },
+      { title: 'Created', prop: 'created' }
     ]
     return(
       <DataTable

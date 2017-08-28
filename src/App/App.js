@@ -6,17 +6,14 @@ import ListFiles from './ListFiles'
 
 class App extends Component {
   state = {
-    files: []
+    files: [],
   }
   componentDidMount() {
     FilesAPI.getAll().then((files) => {
       this.setState({ files })
     })
-    setTimeout(() => {
-      console.log(this.state.files[878])
-      console.log(typeof(this.state.files))
-    }, 2000)
   }
+
   render() {
     return (
       <div className="App">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { DataTable } from 'react-data-components'
 
 class ListFiles extends Component {
   render() {
@@ -6,12 +7,31 @@ class ListFiles extends Component {
     return (
       <div className="list-files">
         <h1>List of Files</h1>
-        <ol className="files">
-        {files.map((file) => (
-          <li key={file.id}>{file.name}</li>
-        ))}
-        </ol>
+        <BuildTable
+          files={files}
+        />
       </div>
+    )
+  }
+}
+
+class BuildTable extends Component {
+  render() {
+    const { files } = this.props
+    const tableColumns = [
+      { title: 'Name', prop: 'name' },
+      { title: 'Size', prop: 'size' }
+    ]
+    return(
+      <DataTable
+        className="container"
+        keys="id"
+        columns={tableColumns}
+        initialData={files}
+        initialPageLength={20}
+        initialSortBy={{ prop: 'name', order: 'ascending' }}
+        pageLengthOptions={[ 20, 50, 100 ]}
+      />
     )
   }
 }

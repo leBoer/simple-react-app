@@ -7,5 +7,5 @@ export const getAll = () =>
     }).then(function (files) {
       return files
     }).catch(function (ex) {
-      console.log('parsing failed', ex)
+      // console.log('parsing failed', ex)
     })

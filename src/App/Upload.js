@@ -2,14 +2,7 @@ import React, { Component } from 'react'
 
 class Upload extends Component {
   state = {
-    file: 
-      {
-        name: "ChristianBorresen.pdf",
-        size: 32153252,
-        created: "Jan 9th, 14:45 EST",
-        description: ""
-      }
-    
+    file: {}
   }
   readFile() {
     const upload = this.fileUpload.files[0]
@@ -23,13 +16,11 @@ class Upload extends Component {
   }
 
   handleSubmit = (event) => {
-    console.log('test')
+    // I'm not actually uploading anything. Could set up a PUT here.
     alert('Your file has been uploaded: ' + this.state.file.name)
-    // event.preventDefault()
   }
 
   handleChange = (event) => {
-    console.log(event.target.value)
     const file = this.state.file
     file.description = event.target.value
     this.setState((state) => ({

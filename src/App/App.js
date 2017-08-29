@@ -15,15 +15,24 @@ class App extends Component {
     FilesAPI.getAll().then((files) => {
       this.setState({ files })
     })
+    setTimeout(() => {
+      console.log(this.state.files)
+    }, 2000)
   }
 
   render() {
+    const linkDivStyle = {
+      float: "right",
+    }
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Link to="/">List of files</Link>
-          <Link to="/upload">Upload a file</Link>
+          <div style={linkDivStyle} className="links">
+            <Link to="/">List of files</Link>
+            <br/>
+            <Link to="/upload">Upload a file</Link>
+          </div>
         </div>
         <Route exact path="/" render={() => (
           <ListFiles
